@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom print styles for SGC Newsletter */
+@media print {
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0;
+    padding: 0.5in;
+    box-shadow: none;
+    page-break-after: always;
+  }
+
+  .section-header {
+    margin-left: -0.5in;
+    margin-right: -0.5in;
+    width: calc(100% + 1in);
+  }
+
+  .newsletter-footer {
+    margin-left: -0.5in;
+    margin-right: -0.5in;
+  }
+}
+
+/* SGC Newsletter specific styles */
+.page {
+  width: 8.5in;
+  height: 11in;
+  margin: 0 auto;
+  padding: 0.5in;
+  background: white;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cover-page {
+  background: linear-gradient(135deg, #2c5f41 0%, #4a7c59 50%, #2c5f41 100%);
+  color: white;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header {
+  background: #2c5f41;
+  color: white;
+  padding: 15px 25px;
+  margin: 0 -0.5in 20px -0.5in;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: calc(100% + 1in);
+}
+
+.subsection-header {
+  background: #4472C4;
+  color: white;
+  padding: 10px 20px;
+  margin: 20px 0 15px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.construction-header {
+  background: #f0ad4e;
+  color: white;
+  padding: 10px 20px;
+  margin: 20px 0 15px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.local-roots-header {
+  background: #d32f2f;
+  color: white;
+  padding: 10px 20px;
+  margin: 20px 0 15px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Content blocks with green left border */
+.content-block {
+  border-left: 4px solid #2c5f41;
+  background: #f9f9f9;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* Newsletter footer */
+.newsletter-footer {
+  background: #2c5f41;
+  color: white;
+  padding: 30px;
+  margin: 30px -0.5in 0 -0.5in;
+  text-align: center;
+}
