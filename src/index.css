@@ -4,6 +4,23 @@
 
 /* Custom print styles for SGC Newsletter */
 @media print {
+  /* Hide editor interface when printing */
+  .content-editor,
+  .view-controls,
+  .export-controls,
+  .status-bar,
+  header {
+    display: none !important;
+  }
+
+  /* Print layout for newsletter */
+  .newsletter-container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .page {
     width: 8.5in;
     height: 11in;
@@ -17,11 +34,31 @@
     margin-left: -0.5in;
     margin-right: -0.5in;
     width: calc(100% + 1in);
+    break-inside: avoid;
   }
 
   .newsletter-footer {
     margin-left: -0.5in;
     margin-right: -0.5in;
+  }
+
+  /* Ensure good print quality */
+  body {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Page breaks */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  .no-break-inside {
+    page-break-inside: avoid;
   }
 }
 

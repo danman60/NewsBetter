@@ -1,6 +1,33 @@
 import React from 'react'
 
-const NewsletterTemplate: React.FC = () => {
+interface ContentSection {
+  id: string
+  title: string
+  content: string
+  type: 'text' | 'list' | 'table'
+  editable: boolean
+}
+
+interface NewsletterTemplateProps {
+  customContent?: ContentSection[]
+}
+
+const NewsletterTemplate: React.FC<NewsletterTemplateProps> = ({ customContent = [] }) => {
+
+  // Helper function to render custom content for specific sections
+  const getCustomContentForSection = (sectionName: string): string => {
+    const section = customContent.find(section =>
+      section.title.toLowerCase().includes(sectionName.toLowerCase()) ||
+      section.content.toLowerCase().includes(sectionName.toLowerCase())
+    )
+    return section ? section.content : ''
+  }
+
+  // Helper function to get content for a section, falling back to default if not found
+  const getSectionContent = (sectionName: string, defaultContent: string): string => {
+    const customContentText = getCustomContentForSection(sectionName)
+    return customContentText || defaultContent
+  }
   return (
     <div className="space-y-8">
       {/* COVER PAGE - Exact replica of SGC template */}
